@@ -30,7 +30,17 @@ namespace TestProject.Pages
 
             _User = User;
 
-            CategoryBox.ItemsSource = App.Database.Categories.ToList();
+            try
+            {
+                CategoryBox.ItemsSource = App.Database.Categories.ToList();
+            }
+            catch (Exception Ex)
+            {
+                MessageBox.Show(Ex.Message);
+                return;
+            }
+
+
 
             UpdateSort();
         }
@@ -38,7 +48,17 @@ namespace TestProject.Pages
         void UpdateSort()
         {
             int IDUser = _User.id;
-            var StartList = App.Database.Payments.Where(p=> p.id_user == IDUser).ToList();
+            List<Payment> StartList;
+
+            try
+            {
+                StartList = App.Database.Payments.Where(p => p.id_user == IDUser).ToList();
+            }
+            catch(Exception Ex)
+            {
+                MessageBox.Show(Ex.Message);
+                return;
+            }
 
             if(Filtr)
             {
@@ -94,6 +114,33 @@ namespace TestProject.Pages
         {
             App.MainFrame.Navigate(new Pages.AddPaymentPage(_User));
 
+        }
+
+        private void DeleteButton_Click(object sender, RoutedEventArgs e)
+        {
+            var PayDelete = DGridPayments.SelectedItem as Payment;
+
+            if(PayDelete == null)
+            {
+                MessageBox.Show("Не выбран ни один платеж для удаления");
+                return;
+            }
+
+            if (MessageBox.Show("Удалить платеж: " + Environment.NewLine + $"{PayDelete.date.ToShortDateString()} {PayDelete.PaymentsType.name} (Кол-во: {PayDelete.count}) на сумму {PayDelete.Sum}",
+                                          "Удалить",
+                                          MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            {
+                try
+                {
+                    App.Database.Payments.Remove(PayDelete);
+                    App.Database.SaveChanges();
+                }
+                catch(Exception Ex)
+                {
+                    MessageBox.Show("При удалении произошла ошибка:" + Environment.NewLine + Ex.Message);
+                    return;
+                }
+            }
         }
     }
 }

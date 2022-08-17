@@ -55,9 +55,19 @@ namespace TestProject.Pages
                     MessageBox.Show(Ex.Message);
                     return;
                 }
-               
 
-                var UserPin = App.Database.Users.Where(p => p.id == IDUser && p.pincode == Pin ).FirstOrDefault();
+                User UserPin;
+               
+                try
+                {
+                    UserPin = App.Database.Users.Where(p => p.id == IDUser && p.pincode == Pin).FirstOrDefault();
+                }
+                catch (Exception Ex)
+                {
+                    MessageBox.Show(Ex.Message);
+                    return;
+                }
+                
 
                 if (UserPin == null)
                 {
@@ -81,7 +91,19 @@ namespace TestProject.Pages
                 return;
             }
 
-            var User = App.Database.Users.Where(p => p.id == IDUser && p.password == Pass).FirstOrDefault();
+            User User;
+
+
+            try
+            {
+                User = App.Database.Users.Where(p => p.id == IDUser && p.password == Pass).FirstOrDefault();
+            }
+            catch (Exception Ex)
+            {
+                MessageBox.Show(Ex.Message);
+                return;
+            }
+
 
             if (User == null)
             {

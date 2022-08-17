@@ -18,7 +18,7 @@
         <Grid Grid.Row="0">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
                 <Button x:Name="AddButton" Content="+" FontSize="24" Click="AddButton_Click" ></Button>
-                <Button x:Name="DeleteButton" Content="-" FontSize="24" Margin="25 0 0 0"></Button>
+                <Button x:Name="DeleteButton" Content="-" FontSize="24" Margin="25 0 0 0" Click="DeleteButton_Click"></Button>
 
                 <Label Content="С " FontSize="18"  Margin="25 0 0 0"></Label>
                 <DatePicker x:Name="dateWithBox" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center"></DatePicker>
