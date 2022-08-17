@@ -132,8 +132,12 @@ namespace TestProject.Pages
             {
                 try
                 {
+                    string SuccessfullMessage = "Вы успешно удалили:" + Environment.NewLine + $"{PayDelete.date.ToShortDateString()} {PayDelete.PaymentsType.name} (Кол-во: {PayDelete.count}) на сумму {PayDelete.Sum}";
                     App.Database.Payments.Remove(PayDelete);
                     App.Database.SaveChanges();
+
+                    MessageBox.Show(SuccessfullMessage);
+                    UpdateSort();
                 }
                 catch(Exception Ex)
                 {

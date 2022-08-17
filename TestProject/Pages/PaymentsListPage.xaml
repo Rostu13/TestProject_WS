@@ -41,7 +41,7 @@
             
             <DataGrid x:Name="DGridPayments" AutoGenerateColumns="False">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Дата" Width="100" Binding="{Binding date}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Дата" Width="100" Binding="{Binding date, StringFormat=d}"></DataGridTextColumn>
                     <DataGridTextColumn Header="Наименование платежа" Width="300" Binding="{Binding PaymentsType.name}"></DataGridTextColumn>
                     <DataGridTextColumn Header="Количество" Width="100"  Binding="{Binding count}"></DataGridTextColumn>
                     <DataGridTextColumn Header="Цена" Width="100"  Binding="{Binding price}"></DataGridTextColumn>

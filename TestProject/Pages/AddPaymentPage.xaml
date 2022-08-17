@@ -12,11 +12,11 @@
     <Grid>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
             <StackPanel Orientation="Horizontal">
-                <Label Content="Категория" Width="150" ></Label>
+                <Label Content="Категория" Width="250" ></Label>
                 <ComboBox x:Name="CategoryBox" Width="250" DisplayMemberPath="name" SelectedIndex="0"></ComboBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="0 20 0 0">
-                <Label Content="Наименование платежа" Width="150"></Label>
+                <Label Content="Наименование платежа" Width="250"></Label>
                 <TextBox x:Name="NamePayments" Width="250"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="0 20 0 0">
@@ -33,8 +33,8 @@
                 <Label Content="Р."></Label>
             </StackPanel> 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="175 25 0 0">
-                <Button x:Name="AddButton" Content="Добавить" Click="AddButton_Click"></Button>
-                <Button x:Name="CancelButton" Content="Отменить" Margin="25 0 0 0" Click="CancelButton_Click"></Button>
+                <Button x:Name="AddButton" Content="Добавить" FontSize="18" Click="AddButton_Click"></Button>
+                <Button x:Name="CancelButton" Content="Отменить" FontSize="18" Margin="25 0 0 0" Click="CancelButton_Click"></Button>
             </StackPanel>
         </StackPanel>
     </Grid>
