@@ -127,7 +127,7 @@ namespace TestProject.Pages
             }
 
             if (MessageBox.Show("Удалить платеж: " + Environment.NewLine + $"{PayDelete.date.ToShortDateString()} {PayDelete.PaymentsType.name} (Кол-во: {PayDelete.count}) на сумму {PayDelete.Sum}",
-                                          "Удалить",
+                                          "Удаление платежа",
                                           MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
                 try

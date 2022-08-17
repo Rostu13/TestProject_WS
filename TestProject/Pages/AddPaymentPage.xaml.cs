@@ -45,6 +45,21 @@ namespace TestProject.Pages
                 return;
             }
 
+            foreach(var Symbl in NamePayment)
+            {
+                if(Symbl < 'А' || Symbl > 'я')
+                {
+                    if(!char.IsPunctuation(Symbl) && !char.IsControl(Symbl) && !char.IsWhiteSpace(Symbl))
+                    {
+                        MessageBox.Show("Наименование платежа должно содержать только русские символы");
+                        return;
+                    }
+                    
+                    
+                }
+
+            }
+
             if (string.IsNullOrWhiteSpace(CountBox.Text))
             {
                 MessageBox.Show("Поле 'количество' не может быть пустым");
