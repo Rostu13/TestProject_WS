@@ -1,0 +1,41 @@
+﻿<Page x:Class="TestProject.Pages.AddPaymentPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:TestProject.Pages"
+      mc:Ignorable="d" 
+      Background="white"
+      d:DesignHeight="450" d:DesignWidth="1000"
+      Title="AddPaymentPage">
+
+    <Grid>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Категория" Width="150" ></Label>
+                <ComboBox x:Name="CategoryBox" Width="250" DisplayMemberPath="name" SelectedIndex="0"></ComboBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0 20 0 0">
+                <Label Content="Наименование платежа" Width="150"></Label>
+                <TextBox x:Name="NamePayments" Width="250"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0 20 0 0">
+                <Label Content="Количество" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Width="150"></Label>
+                <TextBox x:Name="CountBox" Text="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="100"></TextBox>
+                <StackPanel>
+                    <Button x:Name="PlusButton" Content="+" Click="PlusButton_Click"></Button>
+                    <Button x:Name="MinButton" Content="-" Click="MinButton_Click"></Button>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0 20 0 0">
+                <Label Content="Цена" Width="150"></Label>
+                <TextBox x:Name="PriceBox" Width="100"></TextBox>
+                <Label Content="Р."></Label>
+            </StackPanel> 
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="175 25 0 0">
+                <Button x:Name="AddButton" Content="Добавить" Click="AddButton_Click"></Button>
+                <Button x:Name="CancelButton" Content="Отменить" Margin="25 0 0 0" Click="CancelButton_Click"></Button>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>
